@@ -1,4 +1,51 @@
-**ePADD (Email: Process Appraise, Discover, Deliver)** 
+# ePADD-NB
+This is a version of ePADD that supports loading entites from a file. 
+
+The expected format of the .json file with the entites is : 
+
+```
+[ 
+  { 
+    "message-id": "<abcdef1234567890>", 
+    "entities": [ 
+      { 
+        "entity_group": "LOC", 
+        "score": 0.9995821118354797, 
+        "word": "Oslo", 
+        "start": 29, 
+        "end": 33 
+      }, ... 
+    ] 
+  }, ... 
+] 
+```
+
+This application must be built into a .jar-file to run. 
+[Find the file here](https://github.com/NationalLibraryOfNorway/epadd-nb_jarfile/blob/main/epadd-standalone.jar)
+
+```bash
+java -jar epadd-standalone.jar
+```
+
+## How to load the entities:
+
+ePADD creates the following files in your home directory: 
+- epadd-appraisal/ 
+- epadd-settings/ 
+- epadd.properties 
+
+Add this line to the epadd.properties file in your home directory:  
+`entities=<path_to_your_jsonfile_with_entities>` 
+ 
+To properly restart the program, delete the two first directories between each time you run ePADD (if not, all the data from the previous run is kept).  
+
+Run the epadd-standalone.jar again after deleting the files. 
+
+ 
+The rest of the README is that of the original ePADD:
+
+
+**ePADD (Email: Process Appraise, Discover, Deliver)**
 
 https://library.stanford.edu/projects/epadd
 
